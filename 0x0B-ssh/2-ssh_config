@@ -1,6 +1,6 @@
 Host 1662-web-01
-    HostName 34.74.59.190
-    User vagrant
+    HostName 35.190.181.185
+    User ubuntu
     Port 22
     UserKnownHostsFile /dev/null
     StrictHostKeyChecking no
