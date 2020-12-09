@@ -1,0 +1,10 @@
+Host 1662-web-01
+    HostName 34.74.59.190
+    User vagrant
+    Port 22
+    UserKnownHostsFile /dev/null
+    StrictHostKeyChecking no
+    PasswordAuthentication no
+    IdentityFile "~/.ssh/holberton"
+    IdentitiesOnly yes
+    LogLevel FATAL
