@@ -6,7 +6,7 @@ $str = "PasswordAuthentication no\n
         ForwardAgent yes
         "
 
-file { '/etc/ssh/ssh_config':
+file { '~/.ssh/config':
   ensure  => present,
   content => $str,
 }
