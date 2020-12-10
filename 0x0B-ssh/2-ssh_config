@@ -1,3 +1,6 @@
-PasswordAuthentication no
-IdentityFile ~/.ssh/holberton
-ForwardAgent yes
+Host 1662-web-01
+    HostName 35.190.181.185
+    User ubuntu
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/holberton
+    ForwardAgent yes
