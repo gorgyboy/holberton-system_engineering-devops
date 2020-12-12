@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Configure your Nginx server so that /redirect_me is redirecting to another 
+# page and to have a custom 404 page.
+
+sudo apt-get update
+sudo apt-get -y install nginx
+echo "Holberton School for the win!" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+sudo sed -i -e '/listen 80 default_server;/a\' -e '\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sudo sed -i -e '/listen 80 default_server;/a\' -e '\terror_page 404 /404.html;' /etc/nginx/sites-available/default
+sudo service nginx restart
