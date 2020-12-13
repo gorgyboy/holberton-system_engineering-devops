@@ -4,8 +4,8 @@
 
 sudo apt-get update
 sudo apt-get -y install nginx
-echo "Holberton School for the win!" > /var/www/html/index.html
-echo "Ceci n'est pas une page" > /var/www/html/404.html
-sudo sed -i -e '/listen 80 default_server;/a\' -e '\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-sudo sed -i -e '/listen 80 default_server;/a\' -e '\terror_page 404 /404.html;' /etc/nginx/sites-available/default
+echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
+sudo sed -i "/# SSL configuration/ i\ \n\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n" /etc/nginx/sites-enabled/default
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+sudo sed -i "/# SSL configuration/ i\ \n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html \{\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n" /etc/nginx/sites-enabled/default
 sudo service nginx restart
