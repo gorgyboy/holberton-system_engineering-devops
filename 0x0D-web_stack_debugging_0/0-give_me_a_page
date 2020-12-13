@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Command(s) used to "Give you a page!"
+
+sudo service apache2 start
