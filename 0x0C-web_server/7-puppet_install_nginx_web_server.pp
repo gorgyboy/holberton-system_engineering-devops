@@ -10,7 +10,7 @@ service { 'nginx':
   enable     => true,
   hasrestart => true,
   require    => Package['nginx'],
-  subscribe  => File_line['redirect'],
+  subscribe  => Exec['redirect'],
 }
 
 file { '/var/www/html/index.html':
@@ -19,9 +19,7 @@ file { '/var/www/html/index.html':
   content => 'Holberton School for the win!',
 }
 
-file_line { 'redirect':
-  ensure  => present,
-  after   => '\tlisten [::]:80 default_server;',
-  path    => '/etc/nginx/sites-enabled/default',
-  line    => '\trewrite ^/redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+exec { 'redirect':
+  command     => 'sudo sed -i "/# SSL configuration/ i\ \trewrite ^/redirect_me google.com permanent;\n" /etc/nginx/sites-enabled/default',
+  path        => ['/usr/bin', '/bin'],
 }
