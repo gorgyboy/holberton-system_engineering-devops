@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Configures nginx to have a custom header
+
+HOSTNAME=$(hostname)
+
+sudo sed -i "/^.*sendfile.*/i add_header X-Served-By ${HOSTNAME};" /etc/nginx/nginx.conf
