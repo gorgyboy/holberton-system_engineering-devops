@@ -6,13 +6,12 @@ sudo apt-get -y install haproxy
 sudo cat >> /etc/haproxy/haproxy.cfg << EOF
 frontend 1662-lb-01
         bind *:80
+        mode http
         default_backend web_servers
 
 backend web_servers
         balance roundrobin
-        option httpchk HEAD /
-        default-server check maxconn 20
-        server 1662-web-01 35.190.181.185:80
-        server 1662-web-02 35.185.113.213:80
+        server 1662-web-01 35.190.181.185:80 check
+        server 1662-web-02 35.185.113.213:80 check
 EOF
-sudo service haproxy restart
+sudo /etc/init.d/haproxy restart
