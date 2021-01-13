@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Set ups HAproxy
 
-sudo apt update
-sudo apt install -y haproxy
+sudo apt-get update
+sudo apt-get -y install haproxy
 sudo cat >> /etc/haproxy/haproxy.cfg << EOF
 frontend 1662-lb-01
         bind *:80
