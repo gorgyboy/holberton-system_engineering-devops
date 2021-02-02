@@ -2,7 +2,6 @@
 '''API module - Task 0'''
 
 
-import json
 import requests
 import sys
 
