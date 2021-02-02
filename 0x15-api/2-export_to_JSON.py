@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''API module - Task 1'''
+'''API module - Task 2'''
 
 import json
 import requests
